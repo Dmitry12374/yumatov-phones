@@ -1,0 +1,27 @@
+.slider {
+    margin-top: 70px;
+}
+
+.header {
+    margin-bottom: 200px;
+}
+
+.header .text {
+    margin-bottom: 50px;
+}
+
+.swiper-slide {
+    max-height: 300px;
+    display: flex;
+}
+
+.swiper-slide img {
+    height: 100%;
+    margin-right: 30px;
+}
+
+
+.swiper-slide p {
+    font-size: 36px;
+    font-weight: 500;
+}
