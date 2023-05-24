@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/yumatov-phones/static/css/main.d3d01fa7.css",
-    "main.js": "/yumatov-phones/static/js/main.f9ba52d9.js",
+    "main.js": "/yumatov-phones/static/js/main.fa31c5ac.js",
     "index.html": "/yumatov-phones/index.html",
     "main.d3d01fa7.css.map": "/yumatov-phones/static/css/main.d3d01fa7.css.map",
-    "main.f9ba52d9.js.map": "/yumatov-phones/static/js/main.f9ba52d9.js.map"
+    "main.fa31c5ac.js.map": "/yumatov-phones/static/js/main.fa31c5ac.js.map"
   },
   "entrypoints": [
     "static/css/main.d3d01fa7.css",
-    "static/js/main.f9ba52d9.js"
+    "static/js/main.fa31c5ac.js"
   ]
 }
