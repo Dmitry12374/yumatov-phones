@@ -32,7 +32,7 @@ const Find = () => {
 
             <div className="block">
                 <h3 className="title-2 text-center">Карта:</h3>
-                <img className="map" src="/images/map.jpg" alt=""/>
+                <img className="map" src="/yumatov-phones/images/map.jpg" alt=""/>
             </div>
         </div>
     );

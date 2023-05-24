@@ -2,8 +2,10 @@ import React from 'react';
 import Navigation from "../ui/Navigation";
 
 import '../css/about.css';
+import ProductItem from "../components/ProductItem";
 
-const About = () => {
+const About = ({products}) => {
+    let countNew = 0;
     return (
         <div className="container">
             <Navigation/>
@@ -31,41 +33,16 @@ const About = () => {
             <div className="block">
                 <h2 className="title">Новинка компании</h2>
                 <div className="carts_box">
-                    <a href="/product" className="carts_item">
-                        <img className="carts_item-image" src="/images/phone1.webp" alt=""/>
-                        <div className="carts_item-info">
-                            <p className="carts_item-name">Товар</p>
-                            <p className="carts_item-price">100₽</p>
-                        </div>
-                    </a>
-                    <a href="/product" className="carts_item">
-                        <img className="carts_item-image" src="/images/phone2.webp" alt=""/>
-                        <div className="carts_item-info">
-                            <p className="carts_item-name">Товар</p>
-                            <p className="carts_item-price">100₽</p>
-                        </div>
-                    </a>
-                    <a href="/product" className="carts_item">
-                        <img className="carts_item-image" src="/images/phone3.webp" alt=""/>
-                        <div className="carts_item-info">
-                            <p className="carts_item-name">Товар</p>
-                            <p className="carts_item-price">100₽</p>
-                        </div>
-                    </a>
-                    <a href="/product" className="carts_item">
-                        <img className="carts_item-image" src="/images/phone4.webp" alt=""/>
-                        <div className="carts_item-info">
-                            <p className="carts_item-name">Товар</p>
-                            <p className="carts_item-price">100₽</p>
-                        </div>
-                    </a>
-                    <a href="/product" className="carts_item">
-                        <img className="carts_item-image" src="/images/phone5.webp" alt=""/>
-                        <div className="carts_item-info">
-                            <p className="carts_item-name">Товар</p>
-                            <p className="carts_item-price">100₽</p>
-                        </div>
-                    </a>
+                    {
+                        products.map(product => {
+                            if(countNew !== 5) {
+                                countNew++;
+                                return (
+                                    <ProductItem product={product}/>
+                                )
+                            }
+                        })
+                    }
                 </div>
             </div>
         </div>

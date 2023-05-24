@@ -2,7 +2,6 @@ import React from 'react';
 import Navigation from "../ui/Navigation";
 
 import '../css/main.css';
-import Product from "./Product";
 import ProductItem from "../components/ProductItem";
 
 const Main = ({products}) => {
@@ -22,15 +21,15 @@ const Main = ({products}) => {
 
                         <div className="swiper-wrapper">
                             <div className="swiper-slide">
-                                <img src="/images/phone1.webp" alt="Random"/>
+                                <img src="/yumatov-phones/images/phone1.webp" alt="Random"/>
                                     <p>Самый дешёвый магазин в мире!</p>
                             </div>
                             <div className="swiper-slide">
-                                <img src="/images/phone2.webp" alt="Random"/>
+                                <img src="/yumatov-phones/images/phone2.webp" alt="Random"/>
                                     <p>У нас редко бывает обмана</p>
                             </div>
                             <div className="swiper-slide">
-                                <img src="/images/phone3.webp" alt="Random"/>
+                                <img src="/yumatov-phones/images/phone3.webp" alt="Random"/>
                                     <p>Доставка только по СДЭК</p>
                             </div>
                         </div>

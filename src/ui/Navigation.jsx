@@ -5,7 +5,7 @@ const Navigation = () => {
     return (
         <nav className="nav">
             <Link to="/" className="logo">
-                <img src="/images/logo.png" alt=""/>
+                <img src="/yumatov-phones/images/logo.png" alt=""/>
             </Link>
 
             <ul className="nav_list">

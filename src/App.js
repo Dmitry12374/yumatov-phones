@@ -1,4 +1,4 @@
-import {Routes, Route, BrowserRouter} from "react-router-dom";
+import {Routes, Route, HashRouter} from "react-router-dom";
 
 import Footer from "./ui/Footer";
 
@@ -9,6 +9,8 @@ import Find from "./pages/Find";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Product from "./pages/Product";
+import {useEffect, useState} from "react";
+import Basket from "./components/basket/Basket";
 
 function App() {
     const products = [
@@ -134,17 +136,67 @@ function App() {
         }
     ]
 
+    const [basket, setBasket] = useState({});
+
+    function addItem(product) {
+        const id = product.id;
+        let item = basket[id];
+
+        if(item === undefined) {
+            item = {...product};
+            item.amount = 0;
+            item.count = 0;
+        }
+
+        item.amount++;
+        item.cost = item.price * item.amount;
+
+        const newBasket = {...basket, [id]: item};
+
+        setBasket(newBasket);
+        localStorage.setItem("basket", JSON.stringify(newBasket));
+    }
+
+    function removeItem(product) {
+        const id = product.id;
+        let item = basket[id];
+
+        if(item === undefined) return;
+
+        if(item.amount === 1) {
+            const newBasket = {...basket};
+            delete newBasket[item.id];
+            setBasket(newBasket);
+            localStorage.setItem("basket", JSON.stringify(newBasket));
+            return;
+        }
+
+        item.amount--;
+        item.cost = item.price * item.amount;
+        const newBasket = {...basket, [id]: item};
+        setBasket(newBasket);
+        localStorage.setItem("basket", JSON.stringify(newBasket));
+    }
+
+    useEffect(() => {
+        if(localStorage.getItem("basket")) {
+            const basket = JSON.parse(localStorage.getItem("basket"));
+
+            setBasket(basket);
+        }
+    }, []);
   return (
-    <BrowserRouter>
+    <HashRouter>
+        <Basket basket={basket} add={addItem} remove={removeItem}/>
 
         <Routes>
             <Route path="/" element={<Main products={products}/>}/>
-            <Route path="/about" element={<About/>}/>
+            <Route path="/about" element={<About products={products}/>}/>
             <Route path="/catalog" element={<Catalog products={products}/>}/>
             <Route path="/find" element={<Find/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
-            <Route exact path="/product/:id" element={<Product products={products}/>}/>
+            <Route exact path="/product/:id" element={<Product products={products} add={addItem}/>}/>
 
             <Route path="*" element={
                 <h1 style={{textAlign: "center", margin: "400px 0"}}>/404/ - - - Страница не найдена - - - /404/</h1>
@@ -152,7 +204,7 @@ function App() {
         </Routes>
 
         <Footer/>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

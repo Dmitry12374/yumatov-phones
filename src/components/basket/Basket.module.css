@@ -1,0 +1,98 @@
+.basket {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.trigger {
+    border-radius: 20px;
+    background-color: #007aff;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.trigger:hover {
+    background-color: #218dff;
+}
+
+.box {
+    width: 400px;
+    max-height: 500px;
+    background-color: #efefef;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-100%, -100%);
+    border-radius: 20px;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.item {
+    display: flex;
+    padding: 5px 0;
+}
+
+.item:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+
+.itemImage {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.itemImage img {
+    max-width: 100%;
+}
+
+.itemContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemContentName {
+
+}
+
+.itemContentAmount {
+
+}
+
+.itemContentPrice {
+    margin-bottom: 10px;
+}
+
+.itemControl {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.itemControlEl {
+    padding: 5px 10px;
+    background-color: #007aff;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: .15s ease-in-out;
+    margin-bottom: 20px;
+}
+.itemControlEl:hover {
+    background-color: #218dff;
+}
+
+.cost {
+    margin-left: 6px;
+    color: #ffeb89;
+}
